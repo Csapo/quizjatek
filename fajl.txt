@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections;
+using System.Diagnostics;
+
+namespace quizjatek
+{
+    struct Anime
+    {
+        public string AnimeName;
+        public int Episodes;
+    }
+    
+
+    internal class Program
+    {
+        static List<Anime> AnimeList = new List<Anime>();
+        static void inread(string path)
+        {
+
+            StreamReader sr = new StreamReader(path);
+
+
+
+
+
+
+            while (!sr.EndOfStream)
+            {
+                Anime temp = new Anime();
+                string[] data = sr.ReadLine().Split('\t');
+                temp.AnimeName = data[0];
+                temp.Episodes = Convert.ToInt32(data[1]);
+
+                AnimeList.Add(temp);
+            }
+
+            sr.Close();
+
+        }
+
+        static void Main(string[] args)
+        {
+
+            
+
+
+        }
+    }
+}
