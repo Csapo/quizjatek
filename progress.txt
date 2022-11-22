@@ -1,0 +1,317 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections;
+using System.Diagnostics;
+
+namespace quizjatek
+{
+    struct Anime
+    {
+        public string AnimeName;
+        public int Episodes;
+    }
+    
+
+    internal class Program
+    {
+        static int win = 0;
+
+        static List<Anime> AnimeList = new List<Anime>();
+        static void inread(string path)
+        {
+
+            StreamReader sr = new StreamReader(path);
+
+
+
+
+
+
+            while (!sr.EndOfStream)
+            {
+                Anime temp = new Anime();
+                string[] data = sr.ReadLine().Split('\t');
+                temp.AnimeName = data[0];
+                temp.Episodes = Convert.ToInt32(data[1]);
+
+                AnimeList.Add(temp);
+            }
+
+            sr.Close();
+
+        }
+
+        static List<int> lilrandom()
+        {
+            Random rnd = new Random();
+            List<int> fakeanswers = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                int fake = rnd.Next(1, 21);
+                fakeanswers.Add(fake);
+            }
+
+            return fakeanswers;
+        }
+
+        static List<int> midrandom()
+        {
+            Random rnd = new Random();
+            List<int> fakeanswers = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                int fake = rnd.Next(21, 41);
+                fakeanswers.Add(fake);
+            }
+
+            return fakeanswers;
+        }
+        static List<int> mid2random()
+        {
+            Random rnd = new Random();
+            List<int> fakeanswers = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                int fake = rnd.Next(41, 61);
+                fakeanswers.Add(fake);
+            }
+
+            return fakeanswers;
+        }
+        static List<int> bigrandom()
+        {
+            Random rnd = new Random();
+            List<int> fakeanswers = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                int fake = rnd.Next(75, 200);
+                fakeanswers.Add(fake);
+            }
+
+            return fakeanswers;
+        }
+        static List<int> big2random()
+        {
+            Random rnd = new Random();
+            List<int> fakeanswers = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                int fake = rnd.Next(201, 451);
+                fakeanswers.Add(fake);
+            }
+
+            return fakeanswers;
+        }
+        static List<int> OnePiecerandom()
+        {
+            Random rnd = new Random();
+            List<int> fakeanswers = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                int fake = rnd.Next(950, 1101);
+                fakeanswers.Add(fake);
+            }
+
+            return fakeanswers;
+        }
+
+
+
+        static string Win(int episode)
+        {
+            Random rnd = new Random();
+            int place = rnd.Next(0, 61);
+            episode = AnimeList[place].Episodes;
+
+            for (int i = 0; i < AnimeList.Count(); i++)
+            {
+                if (episode == AnimeList[i].Episodes)
+                {
+
+
+
+
+
+                    if (AnimeList[place].Episodes > 950 && AnimeList[place].Episodes <= 1100)
+                    {
+                        OnePiecerandom();
+
+                        Console.WriteLine($"A)");
+                        Console.WriteLine($"B)");
+                        Console.WriteLine($"C)");
+                        Console.WriteLine($"D)");
+
+
+                        int result;
+                        Console.Write("Válasz(a számot): ");
+                        result = int.Parse(Console.ReadLine());
+
+                        if (result == AnimeList[place].Episodes)
+                        {
+                            return "Jó válasz";
+                            win++;
+                        }
+                        else
+                        {
+                            return "Nem jó";
+                        }
+
+
+                    }
+                    else if (AnimeList[place].Episodes > 201 && AnimeList[place].Episodes <= 451)
+                    {
+                        big2random();
+
+                        Console.WriteLine($"A)");
+                        Console.WriteLine($"B)");
+                        Console.WriteLine($"C)");
+                        Console.WriteLine($"D)");
+
+
+                        int result;
+                        Console.Write("Válasz(a számot): ");
+                        result = int.Parse(Console.ReadLine());
+
+                        if (result == AnimeList[place].Episodes)
+                        {
+                            return "Jó válasz";
+                            win++;
+                        }
+                        else
+                        {
+                            return "Nem jó";
+                        }
+
+
+                    }
+                    else if (AnimeList[place].Episodes > 74 && AnimeList[place].Episodes <= 200)
+                    {
+                        bigrandom();
+
+                        Console.WriteLine($"A)");
+                        Console.WriteLine($"B)");
+                        Console.WriteLine($"C)");
+                        Console.WriteLine($"D)");
+
+
+                        int result;
+                        Console.Write("Válasz(a számot): ");
+                        result = int.Parse(Console.ReadLine());
+
+                        if (result == AnimeList[place].Episodes)
+                        {
+                            return "Jó válasz";
+                            win++;
+                        }
+                        else
+                        {
+                            return "Nem jó";
+                        }
+
+
+                    }
+                    else if (AnimeList[place].Episodes > 41 && AnimeList[place].Episodes <= 60)
+                    {
+                        mid2random();
+
+                        Console.WriteLine($"A)");
+                        Console.WriteLine($"B)");
+                        Console.WriteLine($"C)");
+                        Console.WriteLine($"D)");
+
+
+                        int result;
+                        Console.Write("Válasz(a számot): ");
+                        result = int.Parse(Console.ReadLine());
+
+                        if (result == AnimeList[place].Episodes)
+                        {
+                            return "Jó válasz";
+                            win++;
+                        }
+                        else
+                        {
+                            return "Nem jó";
+                        }
+
+
+                    }
+                    else if (AnimeList[place].Episodes > 21 && AnimeList[place].Episodes <= 40)
+                    {
+                        midrandom();
+
+                        Console.WriteLine($"A)");
+                        Console.WriteLine($"B)");
+                        Console.WriteLine($"C)");
+                        Console.WriteLine($"D)");
+
+
+                        int result;
+                        Console.Write("Válasz(a számot): ");
+                        result = int.Parse(Console.ReadLine());
+
+                        if (result == AnimeList[place].Episodes)
+                        {
+                            return "Jó válasz";
+                            win++;
+                        }
+                        else
+                        {
+                            return "Nem jó";
+                        }
+
+
+                    }
+                    else
+                    {
+                        lilrandom();
+
+                        Console.WriteLine($"A)");
+                        Console.WriteLine($"B)");
+                        Console.WriteLine($"C)");
+                        Console.WriteLine($"D)");
+
+
+                        int result;
+                        Console.Write("Válasz(a számot): ");
+                        result = int.Parse(Console.ReadLine());
+
+                        if (result == AnimeList[place].Episodes)
+                        {
+                            return "Jó válasz";
+                            win++;
+                        }
+                        else
+                        {
+                            return "Nem jó";
+                        }
+                    }
+            }
+        }
+
+
+        }
+        static void Main(string[] args)
+        {
+
+            
+
+            inread("kerdesek.txt");
+
+            Console.WriteLine("Hány epizódos az Anime?");
+
+            
+
+
+
+            
+            
+
+
+        }
+    }
+}
