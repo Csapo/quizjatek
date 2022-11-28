@@ -1,0 +1,14 @@
+static List<int> midrandom()
+        {
+            Random rnd = new Random();
+            HashSet<int> fakeanswers = new HashSet<int>();
+
+            while (fakeanswers.Count != 3)
+            {
+                int fake = rnd.Next(21, 41);
+                fakeanswers.Add(fake);
+            }
+            List<int> fakes = fakeanswers.ToList();
+            return fakes;
+
+        }
